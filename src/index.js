@@ -73,7 +73,7 @@ function calculate(expr) {
               if (expr[i] == operation1 || expr[i] == operation2) {
                 operation = expr[i];
               } else {
-                if(!!(+expr[i])) {
+                if(!isNaN(+expr[i])) {  //если не символ, то добавляем следующую цифру
                   leftN += expr[i];
                 } else {
                   leftN = '';
@@ -81,7 +81,7 @@ function calculate(expr) {
                 }
               }
             } else {
-              if(!isNaN(+expr[i])) {
+              if(!isNaN(+expr[i])) {        //если не символ, то добавляем следующую цифру
                 rightN += expr[i];
               } else {
                 expr[i - 1] = methods[operation](+leftN, +rightN);
